@@ -1,0 +1,800 @@
+<DOCTYPE html!>
+<html>
+<head>
+	<title> Home </title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">   <!--bootstrap-->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--font awesome-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!--jquery-->
+
+	 <!--google fonts-->
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Titillium+Web|Sacramento|Quicksand">
+	 <!--
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Satisfy|Parisienne|Dancing+Script|Great+Vibes|Fauna+One|Tangerine">-->
+
+	<!--link rel=stylesheet href="external.css"-->
+	<style>
+		a:link{color:#285eb6;text-decoration:none;font-weight:700}
+
+		a:visited{color:#285eb6;text-decoration:none;font-weight:700}
+
+		h2{color:#29648A}
+
+		body{
+			position: relative;
+		}
+		 .intro{
+			padding: 20px;
+			background-color: #ffd0c5;
+			max-width: 100%;
+		}
+		.col-sm-7{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		#nb{
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			font-family: 'Titillium Web';
+			height:12%;
+			font-size:18px;
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			z-index: 2;
+			background-color: white;
+			color: #29648A;
+		}
+
+		/* The container <div> - needed to position the dropdown content */
+		.dropdown {
+		}
+
+		/* Dropdown Content (Hidden by Default) */
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		  background-color: #ffffff;
+		}
+
+		/* Show the dropdown menu on hover */
+		.dropdown:hover .dropdown-content{
+		  display: block;
+		}
+
+		/*Links inside the dropdown  */
+		.dropdown-content a {
+		  color: black;
+		  padding: 10px 10px;
+		  text-decoration: none;
+		  display: block;
+		}
+
+		/*Change color of dropdown links on hover */
+		.dropdown-content a:hover {background-color: #f1f1f1}
+
+
+		/*ABOUT*/
+		
+		/*hobbies*/
+		.mycontainer{
+			display: flex;
+			justify-content: center;
+		}	
+		.mycontainer > div {
+			box-shadow: 2px 2px 10px 4px lightgrey;
+			border:1px;
+			padding: 10px;
+			margin: 10px;
+			width: 30%;
+			font-family:'Garamond';
+		}
+
+		/*overall*/	
+
+		.dark-mode {
+		  background-color: #000000;
+		  color: #ffffff;
+		}
+
+
+		/*SKILLS*/
+			/*hard skills*/
+		.progress {
+		  height: 20px;
+		  border-radius:20px;
+		}
+
+		.progress-bar {
+		  border-radius:20px;
+		  transition-duration: 3s;
+		}
+
+		/*EXPERINCE*/
+		*{
+			box-sizing: border-box;
+		}
+		/* The actual timeline (the vertical ruler) */
+		.timeline {
+		  position: relative;
+		  max-width: 900px; /*space between box n vertical line*/
+		  margin: 0 auto;
+		}
+
+		/* The actual timeline (the vertical ruler) */
+		.timeline::after {
+		  content: '';    /*without this, vertical line won't be seen*/
+		  position: absolute;
+		  width: 6px; /*width of vertical line*/
+		  background-color: #285eb6;  /*color of vertical line*/
+		  top: 0;
+		  bottom: 0;
+		  left: 50%;  /*keeps it in the center of the page*/
+		 /* margin-left: -3px;*/
+		}
+
+		/* Container around content */
+		.tcontainer {
+		  padding: 10px 40px;
+		  position: relative;
+		 /* background-color: inherit;*/
+		  width: 50%;
+
+		}
+
+		/* The circles on the timeline */
+		.tcontainer::after {
+		  content: '';  /*the circles*/
+		  position: absolute;
+		  width: 25px;
+		  height: 25px;
+		  right: -15px;  /*positions circles 15 pixels to the left of its original position*/
+		  background-color: white;
+		  border: 4px solid #FF9F55;
+		  top: 17px;
+		  border-radius: 50%;  /*makes them perfect circles*/
+		  z-index: 1;
+		}
+
+		/* Place the container to the left */
+		.left {
+		  left: 0;
+		}
+
+		/* Place the container to the right */
+		.right {
+		  left: 50%;
+		}
+
+		/* Add arrows to the left container (pointing right) 
+		.left::before {
+		  content: " ";
+		  height: 0;
+		  position: absolute;
+		  top: 22px;
+		  width: 0;
+		  z-index: 1;
+		  right: 30px;
+		  border: medium solid white;
+		  border-width: 10px 0 10px 10px;
+		  border-color: transparent transparent transparent white;
+		}
+
+		 Add arrows to the right container (pointing left) 
+		.right::before {
+		  content: " ";
+		  height: 0;
+		  position: absolute;
+		  top: 22px;
+		  width: 0;
+		  z-index: 1;
+		  left: 30px;
+		  border: 1px medium solid black;
+		  border-width: 10px 10px 10px 0;
+		  border-color: transparent white transparent transparent;
+		}*/
+
+		/* Fix the circle for containers on the right side */
+		.right::after {
+		  left: -11px;    
+		}
+
+		/* The actual content */
+		.content {
+		  padding: 20px 30px;
+		  /*background-color: white;*/
+		  position: relative;
+		  border-radius: 6px;
+		  border: 1px solid;
+		}
+
+		
+
+</style>
+
+<script>  /*jquery*/
+	/*skills*/
+    $(document).ready(function() {
+     	// Flag to ensure animation happens only once
+	    var animated = false;
+
+	    // On mouse enter event
+	    $("#skills").hover(function() {
+	        if (!animated) {
+	            animated = true; // Set flag to true to prevent re-animation
+	            
+	            // Loop through each progress bar
+	            $(".progress .progress-bar").each(function() {
+	                var $this = $(this);
+	                var targetWidth = $this.attr("aria-valuenow") + "%"; // Get target width from aria-valuenow
+
+	                // Animate the progress bar from 0% to the target width
+	                $this.animate(
+	                    { width: targetWidth }, // Target width
+	                    2500, // Duration in milliseconds
+	                    function() {
+	                        // Update text inside progress bar after animation
+	                        $this.text(targetWidth);
+	                    }
+	                );
+	            });
+	        }
+	    });
+	});       
+</script>
+
+</head>
+
+<body> 
+
+	<!--navigation bar-->
+	<ul id="nb" style="list-style-type: none;"> 
+		<a href="#" style="margin-right:auto; margin-left:1em; font-family:'Sacramento'; font-size: 40px; font-weight: normal;align-items: center;color:#9A1750;"> Arshia Dhole </a> 
+		<!--em = unit of measurement-size relative to font size--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<li class="dropdown"><a href="#about"> ABOUT
+   			<i class="fa fa-caret-down"></i> </a>
+  			<div class="dropdown-content">
+  				<a href="#hobbies">Hobbies</a>
+     			<a href="#Lang">Languages</a>
+    		</div>
+    	</li>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+		<li><a href="#academic"> ACADEMIC </a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li><a href="#skills"> SKILLS </a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li class="dropdown"><a href="#experience"> EXPERIENCE 
+			<i class="fa fa-caret-down"></i> </a>
+  			<div class="dropdown-content">
+  				<a href="#extra">Extracurricular</a>
+     			<a href="#work">Work</a>
+    		</div>
+    	</li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li><a href="#contact"> CONTACT </a> </li> &nbsp;&nbsp;
+		<button onclick="darkToggle()" style="border: none; background-color: inherit; color: slategrey; font-size:24px;">
+			<i class="far fa-moon"></i>
+		</button>
+	</ul>
+
+
+
+	<!--main body-->	
+	<!--HOME-->
+	<div class="jumbotron" style="background-color: #ffd0c5;">
+		<div class="intro">
+			<div class="row">
+				<div class="col-sm-5">
+					<img src="ad3.JPG" width="100%" height="100%">
+				</div>
+				<div class="col-sm-7" style="font-family:'Garamond';">
+					<h1 style="font-size:40px; color:#22562f; font-weight: bold;">Hello, so good to see you!</h1>
+					<br>	
+					<h5 style="text-align:center; color:#22562f;">I'm a creative problem-solver with a background in IT and a passion for developing user-friendly applications.</h5>
+					<br><br>
+					<a href="#contact">
+						<button> Contact Me </button>
+					</a>
+				</div> <!--col ends-->
+			</div><!--row ends-->
+		</div><!--intro class ends-->
+	</div> <!--end of home-->
+	<br><br>
+
+
+	<!--ABOUT-->
+	<div id="about">
+		<h2 style="text-align:center; font-family: 'Titillium Web';"> ABOUT </h2><br>
+		<!--HOBBIES-->
+		<h4 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">HOBBIES </h4>
+		<div id="hobbies" class="mycontainer">
+			<div>
+				<img src="read.jpg" alt="Reading" style="max-width:100%;"> <br><br>
+				<h5 style="text-align: center;"> Reading </h5>
+				<ul> <li>Avid reader who enjoys exploring diverse subjects which has improved my communication skills and critical thinking, making me an adaptable and valuable team member.</li><li> Reading fuels my curiosity and passion for lifelong learning and reduces stress, allowing me to approach challenges with a clear mind and a positive attitude.</li></ul>
+			</div>
+			<div>
+			<img src="cook.jpg" alt="Cooking" style="width:100%;"><br><br>
+				<h5 style="text-align: center;"> Cooking </h5>
+				<ul><li> Enthusiastic home cook with a passion for experimenting with diverse cuisines and flavors, showcasing attention to detail and demonstrating effective time management and teamwork skills in meal preparation.</li><li> I find cooking to be a creative outlet, a relaxing ritual, and a way to connect with others.</li></ul>
+			</div>
+			<div>
+				<img src="journal.jpg" alt="Journaling" style="max-width:100%;"><br><br>
+				<h5 style="text-align: center;"> Journaling </h5>
+				<ul> <li>Journaling regularly helps me reflect on my experiences and explore ideas through writing thereby fostering self-discovery, creativity, and emotional well-being.</li><li> I enjoy the process of setting goals and tracking progress in my journal, demonstrating commitment to personal growth and continuous improvement.</li></ul>
+			</div>
+		</div> <!-- end of hobbies & mycontainer-->
+		<br><br><br>
+
+
+		<!--LANGUAGES-->
+		<div id="Lang">
+		<h4 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">Languages </h4> 
+		<div style="display:flex; justify-content: center; align-items: center; flex-direction: column;font-family:'Garamond';height:60%;">
+			<div class="row">
+				<div class="col-sm-6">
+					<h5> English </h5>
+				</div>
+				<div class="col-sm-6" style="display:flex; flex-direction: row;">
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>
+				</div>
+			</div><br>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<h5> Hindi </h5>
+				</div>
+				<div class="col-sm-6" style="display:flex; flex-direction: row;">
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="far fa-circle"></i>
+				</div>
+			</div><br>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<h5> Marathi </h5>
+				</div>
+				<div class="col-sm-6" style="display:flex; flex-direction: row;">
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="far fa-circle"></i>
+				</div>
+			</div><br>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<h5> Malayalam </h5>
+				</div>
+				<div class="col-sm-6" style="display:flex; flex-direction: row;">
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="far fa-circle"></i>
+				</div>
+			</div><br>
+
+			<div class="row">
+				<div class="col-sm-6">		
+					<h5> French </h5>
+				</div>
+				<div class="col-sm-6" style="display:flex; flex-direction: row;">
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fas fa-circle"></i>&nbsp;
+					<i class="fa-solid fa-circle-half-stroke"></i> &nbsp;
+					<i class="far fa-circle"></i>&nbsp;
+					<i class="far fa-circle"></i>
+				</div>
+			</div>
+		</div>
+	</div><!--end of languages-->
+	</div><br><br><!--end of ABOUT-->
+
+
+
+	<!--ACADEMIC-->
+	<div id="academic">
+	<h2 style="text-align:center; font-family: 'Titillium Web';"> ACADEMIC QUALIFICATIONS </h2><br><br>
+	<div  style="display: flex;justify-content: center; height:40%;" class="table-responsive">
+		<table id="table" class="table table-hover table-bordered border-dark" style="text-align: center; font-family: 'Garamond';width:80%;; font-size: 20px; background-color: white;">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Degree</th>
+		      <th scope="col">School/College</th>
+		      <th scope="col">Year</th>
+		      <th scope="col">CGPA / Percentage / Grade</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    	<th scope="row">1</th>
+		    	<td> B.Sc. I.T. </td>
+				<td> St. Xavier's College, Mumbai. </td>
+				<td> 2023 - Present </td>
+				<td> 9.4 </td>
+		    </tr>
+		    <tr>
+			    <th scope="row">2</th>
+			    <td> HSC </td>
+				<td> R.A.Podar College of Commerce & Economics, Mumbai. </td>
+				<td> 2022 - 2023  </td>
+				<td> 93.17% </td>
+		    </tr>
+		    <tr>
+			    <th scope="row">3</th>
+			    <td> SSC </td>
+				<td> The J.B.Vachha High School, Mumbai. </td>
+				<td> 2020 - 2021 </td>
+				<td> 90% </td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div><br><br>
+
+	<div class="container" style="width:70%">
+		<h4 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">Certifications </h4> <br>
+
+		<!-- Indicators/dots -->
+  					<!--<div class="carousel-indicators">
+   						<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    						<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    						<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  					</div>-->
+
+					<div id="carouselexample" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner">
+
+							<div class="carousel-item active">
+								<img src="cert1.jpg" class="d-block w-100" alt="image of a carousel" width=5% height=60%>
+							</div>
+
+							<div class="carousel-item">
+								<img src="cert2.jpg" class="d-block w-100" alt="image of a carousel" width=5% height=60%>
+							</div>
+
+							<div class="carousel-item">
+								<img src="cert3.jpg" class="d-block w-100" alt="image of a carousel" width=5% height=60%>
+							</div>
+						</div>
+
+
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselexample" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden"> Previous </span>
+					</button>
+
+					<button class="carousel-control-next"type="button" data-bs-target="#carouselexample" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden"> Next </span>
+					</button>
+				</div>
+			</div>
+	</div><br><br><br>   <!--end of academics-->
+
+		
+
+	<!--SKILLS-->
+		<!--HARD SKILLS-->
+		<div id="skills" class="container">
+    		<div class="row" style="display: flex; justify-content: center;">
+	            <div class="col-md-6 col-md-offset-3" style="font-family:'Garamond';font-size: 18px;">
+	            <h2 style="font-family:'Titillium Web'; text-align: center;"> SKILLS </h2>
+	            <br>
+			    <!-- Skill Bars -->
+	                <span>Python</span>
+	            <div class="progress skill-bar ">
+	                <div class="progress-bar " role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                </div>
+	            </div>
+	                
+	           <span>SQL</span>     
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" >
+	                </div>
+	            </div>
+	                <span>C++</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">    
+	                </div>
+	            </div>    
+	            
+	                <span>C</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+	                </div>
+	            </div>              
+	            
+	                <span>Java</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+	                </div>
+	            </div>  
+	               
+	                <span>HTML</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+	                
+	                </div>
+	            </div>                
+	                     
+	                <span>CSS</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+	                   
+	                </div>
+	            </div>  
+	                     
+	                <span>PHP</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+	                   
+	                </div>
+	            </div>
+	                     
+	                <span>JavaScript</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+	                   
+	                </div>
+	            </div>
+
+	            	<span>JQuery</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+	                   
+	                </div>
+	            </div>
+	                     
+	                <span>Bootstrap</span>
+	            <div class="progress skill-bar">
+	                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+	                   
+	                </div>
+	            </div>	<br><br>  <!--end of hard skills-->      
+
+	        <!--SOFT SKILLS-->
+	        <h5 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">SOFT SKILLS </h5><br>
+
+	        		<span>Time Management</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+				</div>
+
+					<span>Communication</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+				</div>
+
+					<span>Adaptibility</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%"></div>
+				</div>
+
+					<span>Problem Solving</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+				</div>
+
+					<span>Critical Thinking</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+				</div>
+
+					<span>Teamwork</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+				</div>
+
+					<span>Creativity</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%"></div>
+				</div>
+
+					<span>Leadership</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%"></div>
+				</div>
+
+					<span>Emotional Intelligence</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+				</div>
+
+					<span>Conflict Management</span>
+				<div class="progress skill-bar">
+				  <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+				</div>
+			</div> <!--end of soft skills-->
+		</div> <br><br><br> <!--end of class row-->
+	</div><!--end of skills-->
+
+
+
+	<!--EXPERIENCE-->
+	<div id="experience">
+		<h2 style="text-align:center; font-family: 'Titillium Web';"> EXPERIENCE </h2><br>
+
+		<!--extracurricular-->
+		<div id="extra">
+		<h4 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">EXTRACURRICULAR </h4>
+		<div class="timeline" style="font-family:'Garamond';">
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>Malhar 2024</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer right">
+		    <div class="content">
+		      <h5><b>MVM 2024 - 25</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>BITMAP 2024</b></h5>
+		      <p>Editor for AI Ethics</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer right">
+		    <div class="content">
+		      <h5><b>Blood Drive February'24</b></h5>
+		      <p>Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>The Business Conference 2023 - 24</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer right">
+		    <div class="content">
+		      <h5><b>Techstatic 2023 - 24</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>Antas 2023</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer right">
+		    <div class="content">
+		      <h5><b>Sitare Beach Clean Up 2023</b></h5>
+		      <p>Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>Blood Drive September'23</b></h5>
+		      <p>Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer right">
+		    <div class="content">
+		      <h5><b>MVM 2023 - 24</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		  <div class="tcontainer left">
+		    <div class="content">
+		      <h5><b>Malhar 2023</b></h5>
+		      <p>Administration Volunteer</p>
+		    </div>
+		  </div>
+		 </div> <!--end of timeline-->
+		</div><!--end of extracurricular--> <br><br><br>
+
+	<!--WORK-->
+		<div id="work">
+		<h4 style="text-align:center;color:#9A1750;font-family: 'Cinzel';">WORK </h4><br>
+		<div style="width: 80%;margin-left: auto;margin-right: auto; border: 1px solid;border-radius: 15px;padding: 20px;">
+		<p style="font-family: 'Garamond';font-size: 20px;text-align: center;">I'm confident that my skills can transfer to a professional environment and would appreciate the opportunity to demonstrate my knowledge and commitment. I would be thrilled to take on a role where I can apply my skills and learn from your team. </p>
+		</div> </div><!--end of work-->
+	</div> <!--end of experience--> <br><br><br>
+
+		
+	<!--CONTACT-->
+	<div id="contact" class="jumbotron" style="background-color: #ffd0c5;"> <br>
+		<h2 style="text-align:center; font-family: 'Titillium Web';"> CONTACT </h2><br><br>
+
+		<div class="row" style="width:80%; text-align: center;margin: auto;margin-right: auto; font-family:'Garamond'">
+
+				<h4 style="font-family:'Cinzel';color:#9A1750;"> Get in touch.</h4> <br><br><br>
+
+			<div class="col-sm-5" style="font-size: 20px;color:#22562f;">
+				<i class="fas fa-envelope"></i> &nbsp;<span>arshia@gmail.com</span><br><br>
+				<i class="fab fa-linkedin-in"></i> &nbsp;<span>www.linkedin.com/in/arshia-dhole-4h7dj19so</span><br><br>
+				<i class="fas fa-map-marker-alt"></i> &nbsp;<span>Mumbai, India. </span> <br><br>
+			</div>  <!--end of col-sm-5-->
+
+			<div class="col-sm-7" style="font-size: 20px;">
+				<form action="send.php" method="POST" onsubmit="validateForm()">
+
+				<div class="row">
+			        <div class="col-sm-6">
+			        	<label for="name"></label><br>
+		            	<input type="text" id="name" name="txtname" placeholder="Name:" required><br><br>
+			        </div>  <!--end of column-->
+
+			        <div class="col-sm-6">
+		            	<label for="linkedin"> </label><br>
+			            <input type="text" id="linkedin" name="txtlinkedin" placeholder="Linkedin Account:" required><br><br>
+		            </div>
+		        </div>
+
+		        <div class="row">
+			        <div class="col-sm-6">
+			            <label for="org"> </label><br>
+			            <input type="text" id="org" name="txtorg" placeholder="Organization:" required><br><br>
+			        </div>  <!--end of column-->
+
+			        <div class="col-sm-6">
+			            <label for="desg"> </label><br>
+			            <input type="text" id="desg" name="txtdesg" placeholder="Designation:" required><br><br>
+			        </div> <!--end of column-->
+		    	</div> <!--end of row-->
+
+		    	<div class="row">
+			        <div class="col-sm-6">
+			            <label for="email"></label><br>
+			            <input type="email" id="email" name="txtemail" placeholder="Email: " required><br><br>
+			        </div>  <!--end of column-->
+
+			        <div class="col-sm-6">
+			            <label for="contact"> </label><br>
+			            <input type="text" id="contact" name="txtcontact" placeholder="Contact Number:" required><br><br>
+			        </div>  <!--end of column-->
+		    	</div> <!--end of row-->
+
+		        <div class="row">
+		        	<div class="col-sm-12">
+		            	<label for="comment"> </label><br>
+		           		<input type="text" id="comment" name="txtcomment" placeholder="Comments:" required> <br><br>
+		        	</div><!--end of col-->
+		        </div><!--end of row-->
+
+		        <div class="row">
+		        	<div class="col-sm-12">
+		           		<input type="submit" value="Send"></input>
+		       		</div> <!--end of col-->
+		        </div> <!--end of row-->
+       			</form>
+       		</div> <!--end of col-sm-7-->
+       	</div>  <!--end of main row-->
+    </div>  <!--end of contact-->
+
+
+
+		
+	
+
+
+ <!--main class ends-->
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!--bootstrap-->
+	<script src="script.js"></script> <!--javascript-->
+</body>
+</html>
